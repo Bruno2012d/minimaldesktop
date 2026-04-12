@@ -1,0 +1,55 @@
+{
+  "position": "top",
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["custom/clock"],
+  "modules-right": ["memory","battery", "clock", "network", "custom/wlogout"],
+  "custom/clock": {
+     "exec": "echo '  '$(date +'%A %d/%m %H:%M')'  '",
+     "interval": 5
+    },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+
+    "format": "  {capacity}%",
+    "format-warning":"  {capacity}%",
+    "format-critical":"   {capacity}%",
+    "format-charging":"  {capacity}%",
+    "format-plugged":"   {capacity}%",
+    "format-alt":"   {time}",
+    "format-full":"   {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{time}"
+  },
+  "custom/archlogo":{
+      "format": "󰣇 ",
+      "tooltip": "Arch Logo",
+      "on-click": "kitty -e fastfetch"
+  },
+  "network": {
+    "format-wifi": " ",
+    "format-ethernet": "     Disconnected",
+    "format-linked": " ",
+    "format-disconnected ": "   Disconnected",
+    "tooltip-format-wifi": "   Signal Strenght: {signalStrength}%",
+    "on-click": "kitty -e nmtui"
+  },
+  "custom/wlogout": {
+     "format": " ⏻ ",
+     "tooltip": "wlogout",
+     "on-click": "wlogout"     
+  },
+  "memory": {
+    "format":" {percentage}%",
+    "on-click": "kitty vtop"
+  },
+  "pulseaudio": {
+      "format":"   {volume}%",
+      "format-muted": "   {volume}%"
+      },
+      "on-click": "pavucontrol"
+  }
+ 
+
