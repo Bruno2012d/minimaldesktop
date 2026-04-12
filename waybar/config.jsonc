@@ -2,7 +2,7 @@
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["custom/clock"],
-  "modules-right": ["memory","battery", "clock", "network", "custom/wlogout"],
+  "modules-right": ["memory","battery", "pulseaudio", "network", "custom/wlogout"],
   "custom/clock": {
      "exec": "echo '  '$(date +'%A %d/%m %H:%M')'  '",
      "interval": 5
