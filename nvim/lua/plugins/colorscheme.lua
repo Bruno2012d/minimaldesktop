@@ -1,15 +1,6 @@
 return {
-  "rose-pine/neovim",
-  name = "rose-pine",
-
+  "topazape/oldtale.nvim",
   opts = {
-    styles = {
-      transparency = true,
-    },
+    transparent = true,
   },
-
-  config = function(_, opts)
-    require("rose-pine").setup(opts)
-    vim.cmd("colorscheme rose-pine")
-  end,
 }
