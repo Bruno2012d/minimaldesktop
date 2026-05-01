@@ -7,14 +7,12 @@ local config = wezterm.config_builder()
 -- local gpus = wezterm.gui.enumerate_gpus()
 -- config.webgpu_preferred_adapter = gpus[1]
 -- config.front_end = "WebGpu"
-
 config.front_end = "OpenGL"
 config.max_fps = 144
 config.default_cursor_style = "BlinkingBlock"
 config.animation_fps = 1
 config.cursor_blink_rate = 500
 config.term = "xterm-256color" -- Set the terminal type
-
 config.font = wezterm.font("Iosevka Nerd Font")
 -- config.font = wezterm.font("Monocraft Nerd Font")
 -- config.font = wezterm.font("FiraCode Nerd Font Mono")
@@ -32,7 +30,7 @@ config.cell_width = 0.9
 config.window_background_opacity = 0.9
 config.prefer_egl = true
 config.font_size = 18.0
-
+config.window_decorations = "RESIZE"
 config.window_padding = {
 	left = 0,
 	right = 0,
@@ -54,18 +52,13 @@ config.use_fancy_tab_bar = false
 --
 
 -- color scheme toggling
-wezterm.on("toggle-colorscheme", function(window, pane)
-	local overrides = window:get_config_overrides() or {}
-	if overrides.color_scheme == "Zenburn" then
-		overrides.color_scheme = "Cloud (terminal.sexy)"
-	else
-		overrides.color_scheme = "Zenburn"
-	end
-	window:set_config_overrides(overrides)
-end)
-
+config.color_scheme = "One Dark (Gogh)"
 -- keymaps
 config.keys = {
+	{
+		key = "F11",
+		action = act.ToggleFullScreen,
+	},
 	{
 		key = "E",
 		mods = "CTRL|SHIFT|ALT",
@@ -124,9 +117,14 @@ config.keys = {
 		end),
 	},
 }
-
+config.mouse_bindings = {
+	{
+		event = { Down = { streak = 1, button = "Left" } },
+		mods = "ALT",
+		action = act.StartWindowDrag,
+	},
+}
 -- For example, changing the color scheme:
-config.color_scheme = "Cloud (terminal.sexy)"
 config.colors = {
 	-- background = '#3b224c',
 	-- background = "#181616", -- vague.nvim bg
